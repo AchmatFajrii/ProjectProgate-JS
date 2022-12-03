@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *, html, body{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: rgb(239, 96, 44);
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1{
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        label{
+            font-size: 16px;
+        }
+        p{
+            color: white;
+            text-align: center;
+            margin-top: 10px;
+        }
+        input{
+            padding: 5px;
+        }
+        button{
+            padding: 5px;
+            background-color: green;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Get a FizzBuzz Result!</h1>
+    </div>
+    <div>
+        <label for="number">Type a number:</label>
+        <input type="number">
+        <button type="submit">Click here!</button>
+        <p></p>
+    </div>
+    <script>
+        const button = document.querySelector('button');
+        const input = document.querySelector('input')
+        const hasil = document.querySelector('p');
+        button.addEventListener('click', function(){
+            if(input.value == 0){
+                hasil.innerHTML = 'invalid input';
+                hasil.style.color = 'red';
+                hasil.style.backgroundColor = 'white'
+            } else if(input.value % 3 == 0 && input.value % 5 == 0){
+                hasil.innerHTML = 'FizzBuzz'
+            } else if(input.value % 3 == 0){
+                hasil.innerHTML = 'Fizz';
+            } else if (input.value % 5 == 0){
+                hasil.innerHTML = 'Buzz';
+            } else{
+                hasil.innerHTML = input.value;
+            }
+            
+        })
+    </script>
+</body>
+</html>
