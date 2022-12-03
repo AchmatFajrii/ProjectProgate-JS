@@ -12,8 +12,6 @@
             box-sizing: border-box;
         }
         body{
-            background-color: rgb(239, 96, 44);
-            color: white;
             height: 100vh;
             display: flex;
             flex-direction: column;
@@ -28,7 +26,6 @@
             font-size: 16px;
         }
         p{
-            color: white;
             text-align: center;
             margin-top: 10px;
         }
@@ -63,12 +60,16 @@
                 hasil.style.color = 'red';
             } else if(input.value % 3 == 0 && input.value % 5 == 0){
                 hasil.innerHTML = 'FizzBuzz'
+                hasil.style.color = 'black';
             } else if(input.value % 3 == 0){
                 hasil.innerHTML = 'Fizz';
+                hasil.style.color = 'black';
             } else if (input.value % 5 == 0){
                 hasil.innerHTML = 'Buzz';
+                hasil.style.color = 'black';
             } else{
                 hasil.innerHTML = input.value;
+                hasil.style.color = 'black';
             }
             
         })
