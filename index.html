@@ -38,9 +38,19 @@
             color: white;
             border: none;
         }
+        img{
+            width: 150px;
+            height: 150px;
+            display: none;
+        }
     </style>
 </head>
 <body>
+    <div style="display: flex;">
+        <img id="ninjasedih" src="Ninja Ken.png" alt="">
+        <img id="ninjafizz" src="happy-ninjaken.png" alt="">
+        <img id="dombabuzz" src="gurudomba.png" alt="">
+    </div>
     <div>
         <h1>Get a FizzBuzz Result!</h1>
     </div>
@@ -54,22 +64,43 @@
         const button = document.querySelector('button');
         const input = document.querySelector('input')
         const hasil = document.querySelector('p');
+        const ninjakenInvalid = document.querySelector('#ninjasedih');
+        const ninjakenFizz = document.querySelector('#ninjafizz');
+        const dombaBuzz = document.querySelector('#dombabuzz');
+
+        console.log(dombaBuzz);
+
         button.addEventListener('click', function(){
             if(input.value == 0){
                 hasil.innerHTML = 'invalid input';
                 hasil.style.color = 'red';
+                ninjakenInvalid.style.display = 'block';
+                ninjakenFizz.style.display = 'none';
+                dombaBuzz.style.display = 'none';
             } else if(input.value % 3 == 0 && input.value % 5 == 0){
                 hasil.innerHTML = 'FizzBuzz'
                 hasil.style.color = 'black';
+                ninjakenInvalid.style.display = 'none';
+                ninjakenFizz.style.display = 'block';
+                dombaBuzz.style.display = 'block';
             } else if(input.value % 3 == 0){
                 hasil.innerHTML = 'Fizz';
                 hasil.style.color = 'black';
+                ninjakenFizz.style.display = 'block';
+                ninjakenInvalid.style.display = 'none'
+                dombaBuzz.style.display = 'none';
             } else if (input.value % 5 == 0){
                 hasil.innerHTML = 'Buzz';
                 hasil.style.color = 'black';
+                dombaBuzz.style.display = 'block';
+                ninjakenFizz.style.display = 'none';
+                ninjakenInvalid.style.display = 'none'
             } else{
                 hasil.innerHTML = input.value;
                 hasil.style.color = 'black';
+                dombaBuzz.style.display = 'none';
+                ninjakenFizz.style.display = 'none';
+                ninjakenInvalid.style.display = 'none'
             }
             
         })
