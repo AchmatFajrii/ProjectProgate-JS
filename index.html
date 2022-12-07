@@ -43,6 +43,12 @@
             height: 150px;
             display: none;
         }
+        .list-item{
+            text-align: center;
+            list-style: none;
+            margin-top: 20px;
+        }
+        
     </style>
 </head>
 <body>
@@ -55,55 +61,79 @@
         <h1>Get a FizzBuzz Result!</h1>
     </div>
     <div>
-        <label for="number">Type a number:</label>
-        <input type="number">
-        <button type="submit">Click here!</button>
-        <p></p>
+        <form id="form-submit">
+            <label for="number">Type a number:</label>
+            <input type="number">
+            <button type="submit">Click here!</button>
+        </form>
     </div>
+    <ul class="list-item">
+    
+    </ul>
     <script>
-        const button = document.querySelector('button');
+        const form = document.querySelector('#form-submit');
         const input = document.querySelector('input')
-        const hasil = document.querySelector('p');
+        const hasil = document.querySelector('ul.list-item')
         const ninjakenInvalid = document.querySelector('#ninjasedih');
         const ninjakenFizz = document.querySelector('#ninjafizz');
         const dombaBuzz = document.querySelector('#dombabuzz');
 
-        console.log(dombaBuzz);
+        form.addEventListener("submit", function addList(e) {
+            e.preventDefault();
+            
+            const li = document.createElement("li");
+            li.innerHTML = input.value;
+            hasil.appendChild(li);
 
-        button.addEventListener('click', function(){
-            if(input.value == 0){
-                hasil.innerHTML = 'invalid input';
-                hasil.style.color = 'red';
-                ninjakenInvalid.style.display = 'block';
-                ninjakenFizz.style.display = 'none';
-                dombaBuzz.style.display = 'none';
-            } else if(input.value % 3 == 0 && input.value % 5 == 0){
-                hasil.innerHTML = 'FizzBuzz'
-                hasil.style.color = 'black';
-                ninjakenInvalid.style.display = 'none';
-                ninjakenFizz.style.display = 'block';
-                dombaBuzz.style.display = 'block';
-            } else if(input.value % 3 == 0){
-                hasil.innerHTML = 'Fizz';
-                hasil.style.color = 'black';
-                ninjakenFizz.style.display = 'block';
-                ninjakenInvalid.style.display = 'none'
-                dombaBuzz.style.display = 'none';
-            } else if (input.value % 5 == 0){
-                hasil.innerHTML = 'Buzz';
-                hasil.style.color = 'black';
-                dombaBuzz.style.display = 'block';
-                ninjakenFizz.style.display = 'none';
-                ninjakenInvalid.style.display = 'none'
+            if (input.value == 0) {
+                li.innerHTML = 'invalid input';
+                li.style.color = 'red';
+            } else if (input.value % 3 == 0 && input.value % 5 == 0) {
+                li.innerHTML = 'FizzBuzz';
+            } else if (input.value % 3 == 0) {
+                li.innerHTML = 'Fizz';
+            } else if (input.value % 5 == 0) {
+                li.innerHTML = 'Buzz';
             } else{
-                hasil.innerHTML = input.value;
-                hasil.style.color = 'black';
-                dombaBuzz.style.display = 'none';
-                ninjakenFizz.style.display = 'none';
-                ninjakenInvalid.style.display = 'none'
+                li.innerHTML = input.value;
             }
             
+            
         })
+        // button.addEventListener('click', function(){
+        //     if(input.value == 0){
+        //         hasil.innerHTML = 'invalid input';
+        //         hasil.style.color = 'red';
+        //         ninjakenInvalid.style.display = 'block';
+        //         ninjakenFizz.style.display = 'none';
+        //         dombaBuzz.style.display = 'none';
+        //     } else if(input.value % 3 == 0 && input.value % 5 == 0){
+        //         hasil.innerHTML = 'FizzBuzz'
+        //         hasil.style.color = 'black';
+        //         ninjakenInvalid.style.display = 'none';
+        //         ninjakenFizz.style.display = 'block';
+        //         dombaBuzz.style.display = 'block';
+        //     } else if(input.value % 3 == 0){
+        //         hasil.innerHTML = 'Fizz';
+        //         hasil.style.color = 'black';
+        //         ninjakenFizz.style.display = 'block';
+        //         ninjakenInvalid.style.display = 'none'
+        //         dombaBuzz.style.display = 'none';
+        //     } else if (input.value % 5 == 0){
+        //         hasil.innerHTML = 'Buzz';
+        //         hasil.style.color = 'black';
+        //         dombaBuzz.style.display = 'block';
+        //         ninjakenFizz.style.display = 'none';
+        //         ninjakenInvalid.style.display = 'none'
+        //     } else{
+        //         hasil.innerHTML = input.value;
+        //         hasil.style.color = 'black';
+        //         dombaBuzz.style.display = 'none';
+        //         ninjakenFizz.style.display = 'none';
+        //         ninjakenInvalid.style.display = 'none'
+        //     }
+            
+        // })
     </script>
 </body>
 </html>
